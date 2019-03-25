@@ -1,11 +1,10 @@
 const express = require("express");
 const cors = require("cors");
-const server = express();
+const Admin = require("./AdminRoute");
 
+const server = express();
 server.use(express.json());
 server.use(cors());
+server.use("/admin", Admin);
 
-server.get("/", (req, res) => {
-  res.send("Hello world");
-});
 module.exports = server;
